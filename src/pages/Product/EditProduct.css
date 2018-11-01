@@ -1,0 +1,28 @@
+.edit-product__form {
+    width: 90%;
+    margin: 3em auto;
+  }
+
+  label, .edit-product__form button {
+    background-color: #d2bb91;
+    border: 2px solid #a50b0b;
+    border-radius: 4px;
+    padding: .33em;
+    color: #a50b0b;
+  }
+
+    .input{
+      margin-bottom: 2em;
+    }
+
+  input[type="title"]:focus, input[type="password"]:focus{
+    background-color: #a50b0b;
+    border: 2px solid #c59372;
+    color: beige;
+  }
+
+  @media (min-width: 768px) {
+    .edit-product__form {
+      width: 40rem;
+    }
+  }

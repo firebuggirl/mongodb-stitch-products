@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background-color: #190a0a; */
+  background-color: #150906;
+  font-family: "Open Sans", sans-serif;
+}
+h1, h2{
+  color: beige;
+}
+
+.main-header__nav{
+  background-color: #a50b0b;
+}
+
+.main-header__nav-item a.active {
+  background: #797384;
+}

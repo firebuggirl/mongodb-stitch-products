@@ -1,0 +1,28 @@
+
+label, button{
+  border-radius: 6px;
+}
+
+.input {
+  width: 100%;
+  margin: 2.5rem 0;
+}
+
+.input input,
+.input textarea {
+  font: inherit;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.25rem 0.5rem;
+  background: white;
+  margin-top: 1.5em;
+}
+
+.input input:focus,
+.input textarea:focus {
+  /* border-color: #6200ff;
+  outline: none; */
+  background-color: #a50b0b;
+  border: 2px solid #c59372;
+  color: beige;
+}

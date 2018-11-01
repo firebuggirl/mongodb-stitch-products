@@ -1,0 +1,62 @@
+h1{
+  color: #a50b0b;
+  -webkit-text-stroke-width: .35px;
+  -webkit-text-stroke-color: white;
+  font-size: 1.5em;
+}
+
+.main-header__nav-item a.active {
+  background: #797384;
+}
+
+.auth__form {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.auth__mode-control {
+  text-align: center;
+  margin: 1rem;
+}
+label{
+  background-color: #d2bb91;
+  border: 2px solid #a50b0b;
+  border-radius: 4px;
+  padding: .33em;
+  margin-bottom: .25em;
+}
+input[type="email"], input[type="password"]{
+  margin-top: .75em;
+}
+input[type="email"]:focus, input[type="password"]:focus{
+  background-color: #a50b0b;
+  border: 2px solid #c59372;
+  color: beige;
+}
+
+.button{
+    margin-top: .75em;
+
+}
+.button:hover{
+  background-color: #a50b0b;
+}
+@media (min-width: 768px) {
+  .auth__form {
+    width: 40rem;
+  }
+  h1{
+    font-size: 2em;
+  }
+
+  label{
+    margin-bottom: .5em;
+  }
+  .button{
+    margin-top: 1.5em;
+
+  }
+}

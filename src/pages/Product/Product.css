@@ -1,0 +1,28 @@
+.product-page {
+    text-align: center;
+}
+
+.product-page__image {
+    width: 25rem;
+    height: 25rem;
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    border: 2px solid #e6e2d7;
+}
+.product-item__image{
+  border: 2px solid #e6e2d7;
+}
+
+.product-item__content h1, .product-item__controls button, .product-item__controls a, p{
+  color: #d6d1b7;
+}
+
+.product-item__content h2{
+  color: #ca9215;
+}
+
+ .product-item__controls button, .product-item__controls a:hover{
+  color: #ea523b;
+
+}
