@@ -25,6 +25,9 @@
     "eject": "react-scripts eject",
     "start:server": "node ./backend/app.js"
   },
+  "engines": {
+    "node": ">= 8.9.4"
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
