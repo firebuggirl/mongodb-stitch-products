@@ -24,7 +24,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+<<<<<<< HEAD
     "heroku-postbuild": "echo Skip builds on Heroku"
+=======
+    "start:server": "node ./backend/app.js",
+    "heroku-postbuild": "echo Skip builds on Heroku"
+  },
+  "engines": {
+    "node": ">= 8.9.4"
+>>>>>>> bbcd731823584f8c4bd38a41fe063951d7a5c4e6
   },
   "devDependencies": {},
   "browserslist": [
