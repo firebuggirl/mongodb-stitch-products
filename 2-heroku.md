@@ -59,3 +59,14 @@
 
           ` heroku open
           `
+
+
+## Check to see that Heroku repo is up to date:
+
+` git remote show heroku
+`
+
+##  see the full commit log for the heroku remote
+
+` git checkout heroku/master
+`
