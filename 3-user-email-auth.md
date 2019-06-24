@@ -29,6 +29,9 @@ https://www.udemy.com/mongodb-the-complete-developers-guide/learn/v4/t/lecture/1
 
                             ` http://localhost:3000/reset-password `
 
+                      - note: can only have ONE url in Stitch UI @ a time, EITHER for localhost OR for Heroku, otherwise have to type/splice connection/activation url string because Mongo Stitch sends several urls together as ONE string!!
+
+
                       - other options are optional..
 
                       - `save`
@@ -52,7 +55,7 @@ https://www.udemy.com/mongodb-the-complete-developers-guide/learn/v4/t/lecture/1
                       ); ...`
 
 
-      - in `Auth/ConfirmAccount.js`:
+  * in `Auth/ConfirmAccount.js`:
 
           ` import {
               Stitch,

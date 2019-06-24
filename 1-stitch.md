@@ -87,6 +87,10 @@ https://www.udemy.com/mongodb-the-complete-developers-guide/learn/v4/t/lecture/1
 
         - choose authentication method -> use `anonymous` for now
 
+        - NOTE: switched to `email/password` => make sure to add email confirmation email via Providers UI => `http://localhost:3000/confirm-account` for dev + `https://<heroku-url>/confirm-account` => see `./user-email-auth.md` for notes/instructions
+
+
+
 
    - In `App.js`
 
@@ -111,7 +115,7 @@ https://www.udemy.com/mongodb-the-complete-developers-guide/learn/v4/t/lecture/1
 
           - add `DB` + `collection` name(s)
 
-          - select `template`//where user rules are set
+          - select `template` => for now, select ` no template`//where user rules are set
 
 
           - `permissions` tab
@@ -206,3 +210,5 @@ https://www.udemy.com/mongodb-the-complete-developers-guide/learn/v4/t/lecture/1
 
 
           - set to ` http://localhost:`
+
+          - see `./user-email-auth.md` for instructions/notes

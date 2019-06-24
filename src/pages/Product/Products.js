@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Stitch, RemoteMongoClient } from 'mongodb-stitch-browser-sdk';
-import BSON from 'bson';
+import BSON from 'bson';// BSON v4+ causing errors on product fetch/GET request
 
 import Products from '../../components/Products/Products';
 
@@ -41,13 +41,13 @@ class ProductsPage extends Component {
       .collection('products')
       .find()
       .asArray()
-      .then(products => {
+      .then(products => {//parse ObjectID & Decimal128 object types into normal javascript
         const transformedProducts = products.map(product => {
           product._id = product._id.toString();
           product.price = product.price.toString();
           return product;
         });
-        console.log(products);
+        console.log(products);//set isLoading to false because we are no longer 'loading' data at this point
         this.setState({ isLoading: false, products: products });
       })
       .catch(err => {
@@ -60,7 +60,7 @@ class ProductsPage extends Component {
   };
 
   render() {
-    
+
     let content = <p>Loading products...</p>;
     const logo = <img width="300px" src="./guitar-emporium.png" alt="guitar" />;
 

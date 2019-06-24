@@ -6,6 +6,9 @@ import {
   UserPasswordCredential
 } from 'mongodb-stitch-browser-sdk';
 
+// if using/allowing anonymous logins ..enable this via Stitch => users => providers
+// import { anonymousCredential } from 'mongodb-stitch-browser-sdk';
+
 import Header from './components/Header/Header';
 import Modal from './components/Modal/Modal';
 import Backdrop from './components/Backdrop/Backdrop';
@@ -14,24 +17,56 @@ import ProductPage from './pages/Product/Product';
 import EditProductPage from './pages/Product/EditProduct';
 import AuthPage from './pages/Auth/Auth';
 import ConfirmAccountPage from './pages/Auth/ConfirmAccount';
-require('dotenv').config();
+import ChangePasswordPage from './pages/Auth/ChangePassword';
+//require('dotenv').config();//will not compile when pushing to Heroku
+
+
 
 class App extends Component {
   state = {
     isAuth: false,
     authMode: 'login',
-    error: null
+    error: null,
+    email: ''
   };
 
   constructor() {
     super();
-    this.client = Stitch.initializeDefaultAppClient(process.env.REACT_APP_INITIALIZE_STITCH);
-    //this.client.callFunction('Greet', ['Juliette']);
+    this.client = Stitch.initializeDefaultAppClient('udemy-stitch-products-oct-18-rwcvp');
+    // this.client.callFunction('Greet', ['Juliette']);//creates error:Error: default app can only be set once
+    // if using anonymousCredential login
+    // this.client.auth.loginWithCredential(new AnonymousCredential());
   }
+
+
 
   logoutHandler = () => {
     this.setState({ isAuth: false });
   };
+
+  // inputChangeHandler = ( input) => {
+  //   this.setState({email: input.value})
+  // };
+
+// resetPasswordHandler = () => {
+// // Parse the URL query parameters
+//       const url = window.location.search;
+//       const params = new URLSearchParams(url);
+//
+//       const token = params.get('token');
+//       const tokenId = params.get('tokenId');
+//       const newPassword = this.inputChangeHandler();
+//
+//       // Confirm the user's email/password account
+//       const emailPassClient = Stitch.defaultAppClient.auth
+//         .getProviderClient(UserPasswordAuthProviderClient.factory);
+//
+//       emailPassClient.resetPassword(token, tokenId, newPassword).then(() => {
+//         console.log("Successfully reset password!");
+//       }).catch(err => {
+//         console.log("Error resetting password:", err);
+//       });
+//   }
 
   authHandler = (event, authData) => {
     event.preventDefault();
@@ -144,6 +179,7 @@ class App extends Component {
           <Redirect from="/products" to="/auth" />
           <Redirect from="/product" to="/auth" />
           <Route path="/confirm-account" component={ConfirmAccountPage} />
+          // <Route path="/reset-password" component={ChangePasswordPage} />
           <Route
             path="/auth"
             render={() => (
@@ -171,6 +207,7 @@ class App extends Component {
         <Header
           authenticated={this.state.isAuth}
           onLogout={this.logoutHandler}
+          // onResetPassword={this.resetPasswordHandler}
         />
         {routes}
       </div>
