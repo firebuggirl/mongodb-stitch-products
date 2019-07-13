@@ -19,9 +19,6 @@ const header = props => {
       <li className="main-header__nav-item">
         <button onClick={props.onLogout}>Logout</button>
       </li>
-      <li className="main-header__nav-item">
-        <button onClick={props.onResetPassword}>Reset Password</button>
-      </li>
     </ul>
   );
 

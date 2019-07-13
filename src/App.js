@@ -27,7 +27,8 @@ class App extends Component {
     isAuth: false,
     authMode: 'login',
     error: null,
-    email: ''
+    email: '',
+    password: ''
   };
 
   constructor() {
@@ -44,29 +45,18 @@ class App extends Component {
     this.setState({ isAuth: false });
   };
 
-  // inputChangeHandler = ( input) => {
-  //   this.setState({email: input.value})
-  // };
 
-// resetPasswordHandler = () => {
-// // Parse the URL query parameters
-//       const url = window.location.search;
-//       const params = new URLSearchParams(url);
-//
-//       const token = params.get('token');
-//       const tokenId = params.get('tokenId');
-//       const newPassword = this.inputChangeHandler();
-//
-//       // Confirm the user's email/password account
-//       const emailPassClient = Stitch.defaultAppClient.auth
-//         .getProviderClient(UserPasswordAuthProviderClient.factory);
-//
-//       emailPassClient.resetPassword(token, tokenId, newPassword).then(() => {
-//         console.log("Successfully reset password!");
-//       }).catch(err => {
-//         console.log("Error resetting password:", err);
-//       });
-//   }
+  resetPasswordHandler = (event, emailInput) => {
+        event.preventDefault();
+        const emailPassClient = Stitch.defaultAppClient.auth
+          .getProviderClient(UserPasswordAuthProviderClient.factory);
+
+        emailPassClient.sendResetPasswordEmail(emailInput.email).then(() => {
+          console.log("Successfully sent password reset email!");
+        }).catch(err => {
+          console.log("Error sending password reset email:", err);
+        });
+    }
 
   authHandler = (event, authData) => {
     event.preventDefault();
@@ -102,27 +92,6 @@ class App extends Component {
         console.log(err);
         this.setState({ isAuth: false });
       });
-    // let request;
-    // if (this.state.authMode === 'login') {
-    //   request = axios.post('http://localhost:3100/login', authData);
-    // } else {
-    //   request = axios.post('http://localhost:3100/signup', authData);
-    // }
-    // request
-    //   .then(authResponse => {
-    //     if (authResponse.status === 201 || authResponse.status === 200) {
-    //       const token = authResponse.data.token;
-    //       console.log(token);
-    //       // Theoretically, you would now store the token in localstorage + app state
-    //       // and use it for subsequent requests to protected backend resources
-    //       this.setState({ isAuth: true });
-    //     }
-    //   })
-    //   .catch(err => {
-    //     this.errorHandler(err.response.data.message);
-    //     console.log(err);
-    //     this.setState({ isAuth: false });
-    //   });
   };
 
   authModeChangedHandler = () => {
@@ -187,6 +156,7 @@ class App extends Component {
                 mode={this.state.authMode}
                 onAuth={this.authHandler}
                 onAuthModeChange={this.authModeChangedHandler}
+                onResetPassword={this.resetPasswordHandler}
               />
             )}
           />

@@ -5,7 +5,6 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 
 class AuthPage extends Component {
-  // state = { email: '', password: '', resetpassword: '' };
   state = { email: '', password: '' };
 
   inputChangeHandler = (event, input) => {
@@ -18,7 +17,7 @@ class AuthPage extends Component {
   render() {
     let signupButtonText = 'Signup';
     let loginButtonText = 'Login';
-    // let resetButtonText = 'Reset Password';
+    let resetButtonText = 'Reset Password';
     if (this.props.mode === 'signup') {
       signupButtonText = 'Login';
       loginButtonText = 'Signup';
@@ -55,23 +54,27 @@ class AuthPage extends Component {
             onChange={event => this.inputChangeHandler(event, 'password')}
           />
           <Button type="submit">{loginButtonText}</Button>
+
+        </form>
+
+        <form
+          className="auth__form"
+          onSubmit={event =>
+            this.props.onResetPassword(event, {
+              email: this.state.email
+            })
+          }
+        >
+        <Input
+          label="Reset Password - Enter Email"
+          config={{ type: 'email' }}
+          onChange={event => this.inputChangeHandler(event, 'email')}
+        />
+
+        <Button type="submit">{resetButtonText}</Button>
         </form>
 </main>
-                // <form
-                //   className="reset__form"
-                //   onSubmit={event =>
-                //     this.props.onResetPassword(event, {
-                //       email: this.state.email
-                //     })
-                //   }
-                // >
-                //   <Input
-                //     label="Reset Password"
-                //     config={{ type: 'email' }}
-                //     onChange={event => this.inputChangeHandler(event, 'email')}
-                //   />
-                //   <Button type="submit">{resetButtonText}</Button>
-                // </form>
+
 
 
     );
