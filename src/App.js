@@ -47,7 +47,7 @@ class App extends Component {
 
 
   resetPasswordHandler = (event, emailInput) => {
-        event.preventDefault();
+        //event.preventDefault();
         const emailPassClient = Stitch.defaultAppClient.auth
           .getProviderClient(UserPasswordAuthProviderClient.factory);
 
